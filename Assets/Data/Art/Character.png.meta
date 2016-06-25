@@ -1,0 +1,133 @@
+fileFormatVersion: 2
+guid: 9a500590aac6a364eb486b91390e14a9
+timeCreated: 1465218204
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Character_Up
+    21300002: Character_Down
+    21300004: Character_Left
+    21300006: Character_Right
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Character_Up
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -28, y: 64}
+        - {x: -37, y: 47}
+        - {x: -37, y: -62}
+        - {x: 31, y: -62}
+        - {x: 31, y: 59}
+        - {x: 15, y: 64}
+    - name: Character_Down
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 31, y: -61}
+        - {x: 31, y: 52}
+        - {x: 18, y: 62}
+        - {x: -26, y: 62}
+        - {x: -37, y: 16}
+        - {x: -37, y: -62}
+        - {x: -14, y: -62}
+        - {x: -11, y: -58}
+        - {x: -2, y: -62}
+        - {x: 29, y: -62}
+    - name: Character_Left
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 31, y: -61}
+        - {x: 31, y: 60}
+        - {x: -37, y: 60}
+        - {x: -37, y: -62}
+        - {x: 29, y: -62}
+    - name: Character_Right
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 31, y: 60}
+        - {x: -15, y: 60}
+        - {x: -28, y: 47}
+        - {x: -37, y: 17}
+        - {x: -37, y: -54}
+        - {x: -34, y: -62}
+        - {x: 31, y: -62}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
