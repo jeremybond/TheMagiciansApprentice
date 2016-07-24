@@ -45,7 +45,7 @@ public class Conversation : MonoBehaviour
 				else
 				{
 					currentText = 0;
-					EventManager.TriggerEvent (StaticEvents.EXITCONVERSATION);
+					EventManager.TriggerEvent (GeneralEvents.EXITCONVERSATION);
 				}
 			}
 		}
@@ -111,7 +111,7 @@ public class Conversation : MonoBehaviour
 		{
 			currentText = 0;
 			inRange = false;
-			EventManager.TriggerEvent (StaticEvents.EXITCONVERSATION);
+			EventManager.TriggerEvent (GeneralEvents.EXITCONVERSATION);
 		}
 	}
 }

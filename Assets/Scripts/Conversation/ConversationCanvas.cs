@@ -15,7 +15,7 @@ public class ConversationCanvas : MonoBehaviour
 	protected void OnEnable ()
 	{
 		EventManager.AddConversationListener(ConversationTriggered);
-		EventManager.AddListener(StaticEvents.EXITCONVERSATION, DisableConversation);
+		EventManager.AddListener(GeneralEvents.EXITCONVERSATION, DisableConversation);
 	}
 	/// <summary>
 	/// OnDisable will remove a listener to the Conversation event;
@@ -23,7 +23,7 @@ public class ConversationCanvas : MonoBehaviour
 	protected void OnDisable ()
 	{
 		EventManager.RemoveConversationListener(ConversationTriggered);
-		EventManager.RemoveListener(StaticEvents.EXITCONVERSATION, DisableConversation);
+		EventManager.RemoveListener(GeneralEvents.EXITCONVERSATION, DisableConversation);
 	}
 	/// <summary>
 	/// Here the conversation objects are set active and the text is updated.
