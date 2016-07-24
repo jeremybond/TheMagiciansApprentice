@@ -17,6 +17,7 @@ public class EnterHouse : MonoBehaviour
 	{
 		if (col.gameObject.name == playerTag)
 		{
+            EventManager.TriggerEvent(GeneralEvents.ENTERHOUSE);
 			SceneManager.LoadScene (HouseSceneName);
 		}
 	}
