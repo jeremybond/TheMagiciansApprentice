@@ -7,7 +7,6 @@ using UnityEngine;
 public class Conversation : MonoBehaviour
 {
 	[SerializeField] private string[] conversation;
-	private string playerTag = "Player";
 	private int currentText = 0;
 	private bool inRange = false;
 
@@ -91,7 +90,7 @@ public class Conversation : MonoBehaviour
 	/// <param name="col"></param>
 	protected void OnTriggerEnter2D (Collider2D col)
 	{
-		if (col.gameObject.tag == playerTag)
+		if (col.gameObject.tag == ConstStrings.PLAYERTAG)
 		{
 			if (character == null)
 			{
@@ -107,7 +106,7 @@ public class Conversation : MonoBehaviour
 	/// <param name="col"></param>
 	protected void OnTriggerExit2D (Collider2D col)
 	{
-		if (col.gameObject.tag == playerTag)
+		if (col.gameObject.tag == ConstStrings.PLAYERTAG)
 		{
 			currentText = 0;
 			inRange = false;

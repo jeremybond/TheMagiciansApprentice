@@ -6,15 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class ExitHouse : MonoBehaviour
 {
-	private string playerTag = "Player";
-
 	/// <summary>
 	/// The OnTrigger function is used to check when a player will exit the collider.
 	/// </summary>
 	/// <param name="col"></param>
 	protected void OnTriggerEnter2D(Collider2D col)
 	{
-		if (col.gameObject.name == playerTag)
+		if (col.gameObject.name == ConstStrings.PLAYERTAG)
 		{
 			SceneManager.LoadScene(ConstStrings.MAINSCENENAME);
 		}

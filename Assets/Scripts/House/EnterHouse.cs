@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 public class EnterHouse : MonoBehaviour
 {
 	[SerializeField] private string HouseSceneName;
-	private string playerTag = "Player";
 
 	/// <summary>
 	/// The OnTrigger function is used to check when a player will enter the collider.
@@ -15,7 +14,7 @@ public class EnterHouse : MonoBehaviour
 	/// <param name="col"></param>
 	protected void OnTriggerEnter2D (Collider2D col)
 	{
-		if (col.gameObject.name == playerTag)
+		if (col.gameObject.name == ConstStrings.PLAYERTAG)
 		{
             EventManager.TriggerEvent(GeneralEvents.ENTERHOUSE);
 			SceneManager.LoadScene (HouseSceneName);

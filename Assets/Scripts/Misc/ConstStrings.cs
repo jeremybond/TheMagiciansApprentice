@@ -4,4 +4,5 @@
 public class ConstStrings
 {
 	public const string MAINSCENENAME = "GamePlayTestScene";
+	public const string PLAYERTAG = "Player";
 }
