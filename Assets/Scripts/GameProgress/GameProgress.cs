@@ -33,7 +33,7 @@ public class GameProgress : MonoBehaviour
 	{
 		if (level == 0)
 		{
-			if (playerPosition == null)
+			if (playerPosition == Vector2.zero)
 			{
 				playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
 			}
