@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class LoadGameScene : MonoBehaviour 
 {
+	/// <summary>
+	/// Awake function that loads the game scene directly.
+	/// </summary>
 	protected void Awake () 
 	{
         SceneManager.LoadScene(ConstStrings.MAINSCENENAME);

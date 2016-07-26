@@ -7,11 +7,15 @@ public class SetLoadInSettings : MonoBehaviour
 {
 	private Transform playerTransform;
 
+	/// <summary>
+	/// OnLevelLoaded function that is called when a level is loaded sets player position at last enterd house.
+	/// </summary>
+	/// <param name="level"></param>
 	protected void OnLevelWasLoaded(int level)
 	{
 		if (playerTransform == null)
 		{
-			playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+			playerTransform = GameObject.FindGameObjectWithTag(ConstStrings.PLAYERTAG).transform;
 		}
 		if (level == 0)
 		{
