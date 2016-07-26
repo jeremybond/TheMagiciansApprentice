@@ -11,12 +11,12 @@ public class EventManager : MonoBehaviour
 
 	private Dictionary<string, UnityEvent> eventDictionary;
 	private Dictionary<string, AudioEvent> audioEventDictionary;
-	private Dictionary<string, LivesDecreaseEvent> livesEventDictionary;
+	private Dictionary<string, LifeEvent> livesEventDictionary;
 	private Dictionary<string, ConversationEvent> conversationEventDictionary;
 
 	private static EventManager eventManager;
 	private const string AUDIOEVENT = "audioEvent";
-	private const string LIVESDECREASEEVENT = "LivesDecreaseEvent";
+	private const string LIFEADJUSTEVENT = "LifeAdjustEvent";
 	private const string CONVERSATIONEVENT = "ConversationEvent";
 
 	public static EventManager instance
@@ -55,7 +55,7 @@ public class EventManager : MonoBehaviour
 		}
 		if (livesEventDictionary == null)
 		{
-			livesEventDictionary = new Dictionary<string, LivesDecreaseEvent> ();
+			livesEventDictionary = new Dictionary<string, LifeEvent> ();
 		}
 		if (conversationEventDictionary == null)
 		{
@@ -86,18 +86,18 @@ public class EventManager : MonoBehaviour
 	/// </summary>
 	/// <param name="eventName"></param>
 	/// <param name="listener"></param>
-	public static void AddLivesDecreaseListener (UnityAction<int> listener)
+	public static void AddAdjustLifeListener (UnityAction<int> listener)
 	{
-		LivesDecreaseEvent thisEvent = null;
-		if (instance.livesEventDictionary.TryGetValue (LIVESDECREASEEVENT, out thisEvent))
+		LifeEvent thisEvent = null;
+		if (instance.livesEventDictionary.TryGetValue (LIFEADJUSTEVENT, out thisEvent))
 		{
 			thisEvent.AddListener (listener);
 		}
 		else
 		{
-			thisEvent = new LivesDecreaseEvent ();
+			thisEvent = new LifeEvent();
 			thisEvent.AddListener (listener);
-			instance.livesEventDictionary.Add (LIVESDECREASEEVENT, thisEvent);
+			instance.livesEventDictionary.Add (LIFEADJUSTEVENT, thisEvent);
 		}
 	}
 	/// <summary>
@@ -158,14 +158,14 @@ public class EventManager : MonoBehaviour
 	/// Remove lives decrease listener function.
 	/// </summary>
 	/// <param name="listener"></param>
-	public static void RemoveLivesDecreaseListener (UnityAction<int> listener)
+	public static void RemoveAdjustLifeListener (UnityAction<int> listener)
 	{
 		if (eventManager == null)
 		{
 			return;
 		}
-		LivesDecreaseEvent thisEvent = null;
-		if (instance.livesEventDictionary.TryGetValue (LIVESDECREASEEVENT, out thisEvent))
+		LifeEvent thisEvent = null;
+		if (instance.livesEventDictionary.TryGetValue (LIFEADJUSTEVENT, out thisEvent))
 		{
 			thisEvent.RemoveListener (listener);
 		}
@@ -218,10 +218,10 @@ public class EventManager : MonoBehaviour
 	/// Trigger lives decrease event function.
 	/// </summary>
 	/// <param name="clip"></param>
-	public static void TriggerLivesDecreaseEvent (int damage)
+	public static void TriggerAdjustLifeEvent (int damage)
 	{
-		LivesDecreaseEvent thisEvent = null;
-		if (instance.livesEventDictionary.TryGetValue (LIVESDECREASEEVENT, out thisEvent))
+		LifeEvent thisEvent = null;
+		if (instance.livesEventDictionary.TryGetValue (LIFEADJUSTEVENT, out thisEvent))
 		{
 			thisEvent.Invoke (damage);
 		}

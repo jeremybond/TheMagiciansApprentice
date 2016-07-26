@@ -23,14 +23,14 @@ public class CharacterMovement : MonoBehaviour
 	/// </summary>
 	protected void OnEnable ()
 	{
-		EventManager.AddLivesDecreaseListener (BounceBack);
+		EventManager.AddAdjustLifeListener (BounceBack);
 	}
 	/// <summary>
 	/// The OnDisable function removes the listeners from the events.
 	/// </summary>
 	protected void OnDisable ()
 	{
-		EventManager.RemoveLivesDecreaseListener (BounceBack);
+		EventManager.RemoveAdjustLifeListener (BounceBack);
 	}
 	/// <summary>
 	/// The update function is used to call the move function.
@@ -63,7 +63,7 @@ public class CharacterMovement : MonoBehaviour
 	/// <summary>
 	/// The bounce back function. The player bounces back when hit by a enemy.
 	/// </summary>
-	/// <param name="i"></param>
+	/// <param name="i">I is the damage that you take but it is not used in this instance</param>
 	private void BounceBack (int i)
 	{
 		stunned = true;

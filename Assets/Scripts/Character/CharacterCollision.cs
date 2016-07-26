@@ -9,8 +9,7 @@ public class CharacterCollision : MonoBehaviour
 {
 	[SerializeField] private Material hitMat;
 	[SerializeField] private Material normalMat;
-
-	private string enemyTag = "Enemy";
+	
 	private SpriteRenderer render;
 
 	/// <summary>
@@ -35,10 +34,17 @@ public class CharacterCollision : MonoBehaviour
 	/// <param name="col"></param>
 	protected void OnCollisionEnter2D (Collision2D col)
 	{
-		if (col.gameObject.tag == enemyTag)
+		if (col.gameObject.tag == ConstStrings.ENEMYTAG)
 		{
-			EventManager.TriggerLivesDecreaseEvent(2);
+			Invoke("LoseLife", 0.1f);
 			StartCoroutine(SwitchMaterialFlash());
 		}
+	}
+	/// <summary>
+	/// Function that triggers the adjust life event.
+	/// </summary>
+	private void LoseLife()
+	{
+		EventManager.TriggerAdjustLifeEvent(20);
 	}
 }
