@@ -19,7 +19,7 @@ public class SpellCollision : MonoBehaviour
 	/// OnCollision enter function that triggers when the spell collides with anything.
 	/// </summary>
 	/// <param name="col"></param>
-	protected void OnCollisionEnter2D (Collision2D col)
+	protected void OnTriggerEnter2D (Collider2D col)
 	{
 		if (col.gameObject.tag != ConstStrings.PLAYERTAG)
 		{

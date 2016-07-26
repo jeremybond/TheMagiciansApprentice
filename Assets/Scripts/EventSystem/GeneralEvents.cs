@@ -5,4 +5,5 @@ public class GeneralEvents
 {
 	public const string EXITCONVERSATION = "ExitConversation";
 	public const string ENTERHOUSE = "HouseEntered";
+	public const string SPELLCAST = "SpellCast";
 }
