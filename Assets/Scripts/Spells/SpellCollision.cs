@@ -7,6 +7,8 @@ public class SpellCollision : MonoBehaviour
 {
 	[SerializeField] private GameObject spell;
 	[SerializeField] private GameObject explosion;
+	[SerializeField] private Collider2D[] colliders;
+	[SerializeField] private int spellDamage;
 
 	/// <summary>
 	/// Awake function that activates the spell.
@@ -23,6 +25,11 @@ public class SpellCollision : MonoBehaviour
 	{
 		if (col.gameObject.tag != ConstStrings.PLAYERTAG)
 		{
+			EventManager.TriggerAdjustLifeEvent(spellDamage);
+			foreach(Collider2D coll in colliders)
+			{
+				coll.enabled = false;
+			}
 			spell.SetActive(false);
 			explosion.SetActive(true);
 			Invoke("DestroySelf", .6f);
