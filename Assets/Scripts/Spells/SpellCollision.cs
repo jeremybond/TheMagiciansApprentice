@@ -25,6 +25,14 @@ public class SpellCollision : MonoBehaviour
 		{
 			spell.SetActive(false);
 			explosion.SetActive(true);
+			Invoke("DestroySelf", .6f);
 		}
+	}
+	/// <summary>
+	/// Function that destroys the spell after colliding with an object.
+	/// </summary>
+	private void DestroySelf()
+	{
+		Destroy(gameObject);
 	}
 }
