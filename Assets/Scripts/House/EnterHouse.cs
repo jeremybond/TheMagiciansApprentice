@@ -16,6 +16,7 @@ public class EnterHouse : MonoBehaviour
 	{
 		if (col.gameObject.name == ConstStrings.PLAYERTAG)
 		{
+			PlayerPrefs.SetInt(ConstStrings.PLAYERLIVES, PlayerStats.lives);
             EventManager.TriggerEvent(GeneralEvents.ENTERHOUSE);
 			SceneManager.LoadScene (HouseSceneName);
 		}

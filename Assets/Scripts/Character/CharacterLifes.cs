@@ -8,7 +8,19 @@ public class CharacterLifes : MonoBehaviour
 {
 	private int maxLives = 100;
 	public int lives = 100;
-	
+	public bool died = false;
+
+	/// <summary>
+	/// Awake function that calls the update ui.
+	/// </summary>
+	protected void Awake ()
+	{
+		if (transform.tag == ConstStrings.PLAYERTAG)
+		{
+			lives = PlayerPrefs.GetInt(ConstStrings.PLAYERLIVES);
+			UpdateUI ();
+		}
+	}
 	/// <summary>
 	/// OnDisable function that removes adjust life listeners.
 	/// </summary>
@@ -27,25 +39,50 @@ public class CharacterLifes : MonoBehaviour
 			lives = maxLives;
 		}
 		RemoveAdjustLifeListeners();
+
+		if (transform.tag == ConstStrings.PLAYERTAG)
+		{
+			UpdateUI ();
+		}
 	}
 	/// <summary>
 	/// Function that decreases the life.
 	/// </summary>
 	private void DecreaseLife(int adjustment)
 	{
+		EventManager.TriggerEvent(GeneralEvents.DAMAGED);
+
 		lives -= adjustment;
 		Debug.Log(lives);
+
 		RemoveAdjustLifeListeners();
 		CheckForDeath();
+
+		if (transform.tag == ConstStrings.PLAYERTAG)
+		{
+			UpdateUI ();
+		}
+	}
+	/// <summary>
+	/// Function that sets the lives in the class Playerstats correct.
+	/// </summary>
+	private void UpdateUI ()
+	{
+		PlayerStats.lives = lives;
 	}
 	/// <summary>
 	/// Function that checks when you are dead.
 	/// </summary>
 	private void CheckForDeath()
 	{
-		if(lives <= 0)
+		if (transform.tag == ConstStrings.PLAYERTAG)
 		{
-			Debug.Log("died");
+			if(lives <= 0)
+			{
+				died = true;
+				EventManager.TriggerEvent(GeneralEvents.DIED);
+				Debug.Log("died");
+			}
 		}
 	}
 	/// <summary>
@@ -54,7 +91,7 @@ public class CharacterLifes : MonoBehaviour
 	/// <param name="col"></param>
 	protected void OnCollisionEnter2D(Collision2D col)
 	{
-		if(col.transform.tag == ConstStrings.ENEMYTAG)
+		if(col.transform.tag == ConstStrings.ENEMYTAG && !died)
 		{
 			EventManager.AddAdjustLifeListener(DecreaseLife);
 		}
@@ -76,7 +113,7 @@ public class CharacterLifes : MonoBehaviour
 	/// <param name="col"></param>
 	protected void OnTriggerEnter2D(Collider2D col)
 	{
-		if(col.transform.tag == ConstStrings.SPELLTAG)
+		if(col.transform.tag == ConstStrings.SPELLTAG && !died)
 		{
 			EventManager.AddAdjustLifeListener(DecreaseLife);
 		}

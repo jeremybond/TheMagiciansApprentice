@@ -28,8 +28,8 @@ public class GameProgress : MonoBehaviour
 	{
 		playerPosition = GameObject.FindGameObjectWithTag(ConstStrings.PLAYERTAG).transform.position;
 		playerPosition -= new Vector2(0, .1f);
-		PlayerPrefs.SetFloat("LastPlayerSavedPositionX", playerPosition.x);
-		PlayerPrefs.SetFloat("LastPlayerSavedPositionY", playerPosition.y);
+		PlayerPrefs.SetFloat(ConstStrings.SAVEDPLAYERPOSITIONX, playerPosition.x);
+		PlayerPrefs.SetFloat(ConstStrings.SAVEDPLAYERPOSITIONY, playerPosition.y);
 	}
 	/// <summary>
 	/// OnLevelWasLoaded function gives the playerPosition variable a value if it has none.
