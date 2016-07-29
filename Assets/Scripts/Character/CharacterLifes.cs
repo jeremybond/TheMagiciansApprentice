@@ -115,7 +115,7 @@ public class CharacterLifes : MonoBehaviour
 		{
 			EventManager.AddAdjustLifeListener(DecreaseLife);
 		}
-		else if(col.transform.tag == ConstStrings.PICKUP)
+		else if(col.transform.tag == ConstStrings.PICKUPTAG)
 		{
 			EventManager.AddAdjustLifeListener(IncreaseLife);
 		}
@@ -130,7 +130,7 @@ public class CharacterLifes : MonoBehaviour
 		{
 			EventManager.RemoveAdjustLifeListener(DecreaseLife);
 		}
-		else if (col.transform.tag == ConstStrings.PICKUP)
+		else if (col.transform.tag == ConstStrings.PICKUPTAG)
 		{
 			EventManager.RemoveAdjustLifeListener(IncreaseLife);
 		}
