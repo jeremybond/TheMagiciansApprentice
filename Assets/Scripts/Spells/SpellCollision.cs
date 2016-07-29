@@ -23,7 +23,7 @@ public class SpellCollision : MonoBehaviour
 	/// <param name="col"></param>
 	protected void OnTriggerEnter2D (Collider2D col)
 	{
-		if (col.gameObject.tag != ConstStrings.PLAYERTAG)
+		if (col.gameObject.tag != ConstStrings.PLAYERTAG && col.gameObject.tag != ConstStrings.PICKUPTAG)
 		{
 			EventManager.TriggerAdjustLifeEvent(spellDamage);
 			foreach(Collider2D coll in colliders)
