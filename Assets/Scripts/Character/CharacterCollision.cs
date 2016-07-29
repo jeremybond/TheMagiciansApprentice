@@ -13,7 +13,7 @@ public class CharacterCollision : MonoBehaviour
 	private SpriteRenderer render;
 
 	/// <summary>
-	/// The awake function will provide some variables with some values.
+	/// The awake function is used to apply values to variables.
 	/// </summary>
 	protected void Awake ()
 	{
@@ -34,10 +34,13 @@ public class CharacterCollision : MonoBehaviour
 	/// <param name="col"></param>
 	protected void OnCollisionEnter2D (Collision2D col)
 	{
-		if (col.gameObject.tag == ConstStrings.ENEMYTAG)
+		if (!PlayerStats.died)
 		{
-			Invoke("LoseLife", 0.1f);
-			StartCoroutine(SwitchMaterialFlash());
+			if (col.gameObject.tag == ConstStrings.ENEMYTAG)
+			{
+				Invoke("LoseLife", 0.1f);
+				StartCoroutine(SwitchMaterialFlash());
+			}
 		}
 	}
 	/// <summary>

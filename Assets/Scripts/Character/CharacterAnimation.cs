@@ -85,9 +85,12 @@ public class CharacterAnimation : MonoBehaviour
 	/// </summary>
 	protected void Update ()
 	{
-		CheckMoving();
-		CheckStopMoving();
-		CheckShooting();
+		if (!PlayerStats.died)
+		{
+			CheckMoving ();
+			CheckStopMoving ();
+			CheckShooting ();
+		}
 	}
 	/// <summary>
 	/// The general checks for pressing any move key.
