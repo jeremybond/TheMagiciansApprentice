@@ -53,7 +53,6 @@ public class CharacterLifes : MonoBehaviour
 		EventManager.TriggerEvent(GeneralEvents.DAMAGED);
 
 		lives -= adjustment;
-		Debug.Log(lives);
 
 		RemoveAdjustLifeListeners();
 		CheckForDeath();
@@ -81,7 +80,6 @@ public class CharacterLifes : MonoBehaviour
 			{
 				died = true;
 				EventManager.TriggerEvent(GeneralEvents.DIED);
-				Debug.Log("died");
 			}
 		}
 	}
