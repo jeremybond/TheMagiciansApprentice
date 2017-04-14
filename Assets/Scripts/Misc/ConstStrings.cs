@@ -14,4 +14,5 @@ public class ConstStrings
 	public const string ENEMYTAG = "Enemy";
 	public const string SPELLTAG = "Spell";
 	public const string PICKUPTAG = "PickUp";
+	public const string CHESTTAG = "Chest";
 }

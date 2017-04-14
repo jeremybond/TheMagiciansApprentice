@@ -7,5 +7,6 @@ public class GeneralEvents
 	public const string ENTERHOUSE = "HouseEntered";
 	public const string SPELLCAST = "SpellCast";
 	public const string DAMAGED = "LostSomeLives";
+	public const string ADJUSTWALLETCONTENT = "AdjustWalletContent";
 	public const string DIED = "died";
 }
