@@ -12,11 +12,13 @@ public class EventManager : MonoBehaviour
 	private Dictionary<string, UnityEvent> eventDictionary;
 	private Dictionary<string, AudioEvent> audioEventDictionary;
 	private Dictionary<string, LifeEvent> livesEventDictionary;
+	private Dictionary<string,  WalletEvent> walletEventDictionary;
 	private Dictionary<string, ConversationEvent> conversationEventDictionary;
 
 	private static EventManager eventManager;
 	private const string AUDIOEVENT = "audioEvent";
 	private const string LIFEADJUSTEVENT = "LifeAdjustEvent";
+	private const string WALLETADJUSTEVENT = "WalletAdjustEvent";
 	private const string CONVERSATIONEVENT = "ConversationEvent";
 
 	public static EventManager instance
@@ -57,11 +59,16 @@ public class EventManager : MonoBehaviour
 		{
 			livesEventDictionary = new Dictionary<string, LifeEvent> ();
 		}
+		if (walletEventDictionary == null)
+		{
+			walletEventDictionary = new Dictionary<string, WalletEvent> ();
+		}
 		if (conversationEventDictionary == null)
 		{
 			conversationEventDictionary = new Dictionary<string, ConversationEvent> ();
 		}
 	}
+	
 	/// <summary>
 	/// Add listener function.
 	/// </summary>
@@ -81,6 +88,7 @@ public class EventManager : MonoBehaviour
 			instance.eventDictionary.Add (eventName, thisEvent);
 		}
 	}
+
 	/// <summary>
 	/// Add lives decrease listener function.
 	/// </summary>
@@ -100,6 +108,27 @@ public class EventManager : MonoBehaviour
 			instance.livesEventDictionary.Add (LIFEADJUSTEVENT, thisEvent);
 		}
 	}
+
+	/// <summary>
+	/// add adjust wallet content listener function.
+	/// </summary>
+	/// <param name="eventName"></param>
+	/// <param name="listener"></param>
+	public static void AddAdjustWalletContentListener (UnityAction<int> listener)
+	{
+		WalletEvent thisEvent = null;
+		if (instance.walletEventDictionary.TryGetValue (WALLETADJUSTEVENT, out thisEvent))
+		{
+			thisEvent.AddListener (listener);
+		}
+		else
+		{
+			thisEvent = new WalletEvent ();
+			thisEvent.AddListener (listener);
+			instance.walletEventDictionary.Add (WALLETADJUSTEVENT, thisEvent);
+		}
+	}
+
 	/// <summary>
 	/// Add conversation listener function.
 	/// </summary>
@@ -119,6 +148,7 @@ public class EventManager : MonoBehaviour
 			instance.conversationEventDictionary.Add (CONVERSATIONEVENT, thisEvent);
 		}
 	}
+
 	/// <summary>
 	/// Add audio listener function.
 	/// </summary>
@@ -137,6 +167,7 @@ public class EventManager : MonoBehaviour
 			instance.audioEventDictionary.Add (AUDIOEVENT, thisEvent);
 		}
 	}
+
 	/// <summary>
 	/// Remove listener function.
 	/// </summary>
@@ -154,6 +185,7 @@ public class EventManager : MonoBehaviour
 			thisEvent.RemoveListener (listener);
 		}
 	}
+
 	/// <summary>
 	/// Remove lives decrease listener function.
 	/// </summary>
@@ -170,6 +202,24 @@ public class EventManager : MonoBehaviour
 			thisEvent.RemoveListener (listener);
 		}
 	}
+
+	/// <summary>
+	/// Remove adjust wallet content listener function.
+	/// </summary>
+	/// <param name="listener"></param>
+	public static void RemoveAdjustWalletContentListener (UnityAction<int> listener)
+	{
+		if (eventManager == null)
+		{
+			return;
+		}
+		WalletEvent thisEvent = null;
+		if (instance.walletEventDictionary.TryGetValue (WALLETADJUSTEVENT, out thisEvent))
+		{
+			thisEvent.RemoveListener (listener);
+		}
+	}
+
 	/// <summary>
 	/// Remove conversation listener function.
 	/// </summary>
@@ -186,6 +236,7 @@ public class EventManager : MonoBehaviour
 			thisEvent.RemoveListener (listener);
 		}
 	}
+
 	/// <summary>
 	/// Remove audio listener function.
 	/// </summary>
@@ -202,6 +253,7 @@ public class EventManager : MonoBehaviour
 			thisEvent.RemoveListener (listener);
 		}
 	}
+
 	/// <summary>
 	/// Trigger event function.
 	/// </summary>
@@ -214,6 +266,7 @@ public class EventManager : MonoBehaviour
 			thisEvent.Invoke ();
 		}
 	}
+	
 	/// <summary>
 	/// Trigger lives decrease event function.
 	/// </summary>
@@ -226,6 +279,20 @@ public class EventManager : MonoBehaviour
 			thisEvent.Invoke (damage);
 		}
 	}
+
+	/// <summary>
+	/// Trigger adjust wallet content event function.
+	/// </summary>
+	/// <param name="clip"></param>
+	public static void TriggerAdjustWalletContentEvent (int change)
+	{
+		WalletEvent thisEvent = null;
+		if (instance.walletEventDictionary.TryGetValue (WALLETADJUSTEVENT, out thisEvent))
+		{
+			thisEvent.Invoke (change);
+		}
+	}
+
 	/// <summary>
 	/// Trigger conversation event function.
 	/// </summary>
@@ -238,6 +305,7 @@ public class EventManager : MonoBehaviour
 			thisEvent.Invoke (sentence);
 		}
 	}
+
 	/// <summary>
 	/// Trigger audio event function.
 	/// </summary>
