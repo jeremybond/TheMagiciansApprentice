@@ -16,28 +16,37 @@ public class ChestInteraction : MonoBehaviour
 	[SerializeField]
 	private Sprite closedChest;
 
+	/// <summary>
+	/// initialize the chest and give it his correct values.
+	/// </summary>
 	protected void Start ()
 	{
 		chest = new Chest();
 		chest.ID = chestID;
 		ChestProgress.chestProgress.AddChest (chest);
-		chest.Opened = ChestProgress.chestProgress.allChestData.Count < 0 ? ChestProgress.chestProgress.allChestData[chest.ID].Opened : false;
+
+		chest.Opened = ChestProgress.chestProgress.allChestData.Count > 0 ? ChestProgress.chestProgress.allChestData[chest.ID -1].Opened : false;
 		render = GetComponent<SpriteRenderer>();
+
 		if (chest != null)
 		{
 			ChangeChestSprite();
 		}
-		print("chest id = " + chest.ID);
 	}
 
+	/// <summary>
+	/// Call all the functions that are used to open the chest
+	/// </summary>
 	public void OpenChest()
 	{
-		print ("open chest function called");
 		chest.Opened = true;
-		ChestProgress.chestProgress.OpenChest(chest.ID);
+		ChestProgress.chestProgress.OpenChest(chest.ID -1);
 		ChangeChestSprite();
 	}
 
+	/// <summary>
+	/// Change the image of the chest.
+	/// </summary>
 	public void ChangeChestSprite ()
 	{
 		if (chest.Opened)
