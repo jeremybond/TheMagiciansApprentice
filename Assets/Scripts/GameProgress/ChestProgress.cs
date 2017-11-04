@@ -36,6 +36,7 @@ public class ChestProgress : MonoBehaviour
 
 		bf.Serialize (file, data);
 		file.Close ();
+		print ("save current chest statuses");
 	}
 
 	/// <summary>
@@ -51,6 +52,7 @@ public class ChestProgress : MonoBehaviour
 			file.Close ();
 
 			allChestData = data.allChests;
+			print ("load current chest statuses");
 		}
 		else
 		{
@@ -114,6 +116,7 @@ public class ChestProgress : MonoBehaviour
 	public void OpenChest (int id)
 	{
 		allChestData[id].Open ();
+		SaveChestData ();
 	}
 }
 
