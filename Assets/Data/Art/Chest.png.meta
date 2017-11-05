@@ -1,13 +1,16 @@
 fileFormatVersion: 2
 guid: 944dabed837e2f142986b62da63cedb1
-timeCreated: 1509800800
+timeCreated: 1509809762
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Chest_closed
+    21300002: Chest_opened
+    21300004: Chest_opened
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -27,10 +30,10 @@ TextureImporter:
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
   textureFormat: -1
-  maxTextureSize: 2048
+  maxTextureSize: 512
   textureSettings:
-    filterMode: -1
-    aniso: -1
+    filterMode: 1
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -38,18 +41,73 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 200
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: Chest_closed
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 128, y: 10}
+        - {x: 128, y: 79}
+        - {x: 127, y: 81}
+        - {x: 59, y: 128}
+        - {x: -43, y: 128}
+        - {x: -89, y: 110}
+        - {x: -127, y: 76}
+        - {x: -128, y: 69}
+        - {x: -128, y: 13}
+        - {x: -111, y: -7}
+        - {x: -67, y: -31}
+        - {x: -54, y: -82}
+        - {x: -74, y: -128}
+        - {x: 75, y: -128}
+        - {x: 65, y: -36}
+        - {x: 109, y: -4}
+    - name: Chest_opened
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 68, y: 4}
+        - {x: 128, y: 39}
+        - {x: 128, y: 111}
+        - {x: 114, y: 128}
+        - {x: -112, y: 128}
+        - {x: -126, y: 125}
+        - {x: -128, y: 116}
+        - {x: -128, y: 45}
+        - {x: -88, y: 15}
+        - {x: -108, y: 0}
+        - {x: -107, y: -6}
+        - {x: -67, y: -31}
+        - {x: -75, y: -128}
+        - {x: 75, y: -128}
+        - {x: 57, y: -81}
+        - {x: 68, y: -37}
+        - {x: 111, y: 1}
     outline: []
   spritePackingTag: 
   userData: 
