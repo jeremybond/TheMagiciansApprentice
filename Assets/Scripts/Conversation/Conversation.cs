@@ -34,6 +34,7 @@ public class Conversation : MonoBehaviour
 		{
 			if (Input.GetKeyDown (KeyCode.F))
 			{
+				print("trigger pressed f in range");
 				UpdateRotation ();
 
 				currentText++;
