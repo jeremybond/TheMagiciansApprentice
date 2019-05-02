@@ -27,7 +27,7 @@ public class GameProgress : MonoBehaviour
 	private void HouseEntered()
 	{
 		playerPosition = GameObject.FindGameObjectWithTag(ConstStrings.PLAYERTAG).transform.position;
-		playerPosition -= new Vector2(0, .1f);
+		playerPosition -= new Vector2(0, .5f);
 		PlayerPrefs.SetFloat(ConstStrings.SAVEDPLAYERPOSITIONX, playerPosition.x);
 		PlayerPrefs.SetFloat(ConstStrings.SAVEDPLAYERPOSITIONY, playerPosition.y);
 	}
