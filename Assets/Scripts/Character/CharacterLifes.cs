@@ -111,7 +111,7 @@ public class CharacterLifes : MonoBehaviour
 	/// <param name="col"></param>
 	protected void OnTriggerEnter2D(Collider2D col)
 	{
-		if(col.transform.tag == ConstStrings.SPELLTAG && !died)
+		if(col.transform.tag == ConstStrings.ENEMYTAG && !died)
 		{
 			EventManager.AddAdjustLifeListener(DecreaseLife);
 		}
@@ -126,7 +126,7 @@ public class CharacterLifes : MonoBehaviour
 	/// <param name="col"></param>
 	protected void OnTriggerExit2D(Collider2D col)
 	{
-		if (col.transform.tag == ConstStrings.SPELLTAG)
+		if (col.transform.tag == ConstStrings.ENEMYTAG)
 		{
 			EventManager.RemoveAdjustLifeListener(DecreaseLife);
 		}
