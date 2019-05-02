@@ -46,8 +46,12 @@ public class CharacterAnimation : MonoBehaviour
 	[SerializeField] private Sprite[] WalkAndShootUp;
 	[SerializeField] private Sprite[] WalkAndShootLeft;
 	[SerializeField] private Sprite[] WalkAndShootRight;
-	
-	private int currentSpriteID = 0;
+    [SerializeField] private Sprite[] JumpOfWallDown;
+    [SerializeField] private Sprite[] JumpOfWallUp;
+    [SerializeField] private Sprite[] JumpOfWallLeft;
+    [SerializeField] private Sprite[] JumpOfWallRight;
+
+    private int currentSpriteID = 0;
 	private Sprite[] currentAnim;
 
 	private SpriteRenderer render;
@@ -326,14 +330,15 @@ public class CharacterAnimation : MonoBehaviour
 		while (1 != 2)
 		{
 			if (currentAnim != null)
-			{
-				render.sprite = currentAnim[currentSpriteID];
-				yield return new WaitForSeconds (0.1f);
+            {
+                if (currentAnim.Length == currentSpriteID || currentAnim.Length <= currentSpriteID)
+                {
+                    currentSpriteID = 0;
+                }
+                render.sprite = currentAnim[currentSpriteID];
+                yield return new WaitForSeconds (0.1f);
 				currentSpriteID++;
-				if (currentAnim.Length == currentSpriteID)
-				{
-					currentSpriteID = 0;
-				}
+				
 			}
 			yield return null;
 		}
