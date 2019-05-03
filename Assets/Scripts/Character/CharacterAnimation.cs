@@ -56,7 +56,7 @@ public class CharacterAnimation : MonoBehaviour
 
 	private SpriteRenderer render;
 
-	public LookingDirection lookDir;
+    [HideInInspector] public LookingDirection lookDir;
 	private AnimationStates curAnimState;
 
 	private bool changeSide = true;
@@ -66,6 +66,7 @@ public class CharacterAnimation : MonoBehaviour
 
 	private bool moving;
 	private bool shooting;
+    private bool jumpingDown = false;
 
 	/// <summary>
 	/// The awake function is used to apply values to variables.
@@ -138,7 +139,7 @@ public class CharacterAnimation : MonoBehaviour
 	private void CheckStopMoving ()
 	{
 		// Check for releasing a move key and then decreasing keysPressed. When keysPressed is zero, changing animation.
-		if (keysPressed != 0)
+		if (keysPressed != 0 )
 		{
 			// Checking for releasing any movement key.
 			//LEFT
@@ -249,77 +250,80 @@ public class CharacterAnimation : MonoBehaviour
 	/// </summary>
 	private void ChangeAnimation ()
 	{
-		switch (curAnimState)
-		{
-			case AnimationStates.Idle:
-			switch (lookDir)
-			{
-				case LookingDirection.Down:
-				currentAnim = IdleDown;
-				break;
-				case LookingDirection.Up:
-				currentAnim = IdleUp;
-				break;
-				case LookingDirection.Left:
-				currentAnim = IdleLeft;
-				break;
-				case LookingDirection.Right:
-				currentAnim = IdleRight;
-				break;
-			}
-			break;
-			case AnimationStates.Moving:
-			switch (lookDir)
-			{
-				case LookingDirection.Down:
-				currentAnim = WalkDown;
-				break;
-				case LookingDirection.Up:
-				currentAnim = WalkUp;
-				break;
-				case LookingDirection.Left:
-				currentAnim = WalkLeft;
-				break;
-				case LookingDirection.Right:
-				currentAnim = WalkRight;
-				break;
-			}
-			break;
-			case AnimationStates.Shooting:
-			switch (lookDir)
-			{
-				case LookingDirection.Down:
-				currentAnim = ShootDown;
-				break;
-				case LookingDirection.Up:
-				currentAnim = ShootUp;
-				break;
-				case LookingDirection.Left:
-				currentAnim = ShootLeft;
-				break;
-				case LookingDirection.Right:
-				currentAnim = ShootRight;
-				break;
-			}
-			break;
-			case AnimationStates.MovingAndShooting:
-			switch (lookDir)
-			{
-				case LookingDirection.Down:
-				currentAnim = WalkAndShootDown;
-				break;
-				case LookingDirection.Up:
-				currentAnim = WalkAndShootUp;
-				break;
-				case LookingDirection.Left:
-				currentAnim = WalkAndShootLeft;
-				break;
-				case LookingDirection.Right:
-				currentAnim = WalkAndShootRight;
-				break;
-			}
-			break;
-		}
+        if (!jumpingDown)
+        {
+            switch (curAnimState)
+            {
+                case AnimationStates.Idle:
+                switch (lookDir)
+                {
+                    case LookingDirection.Down:
+                    currentAnim = IdleDown;
+                    break;
+                    case LookingDirection.Up:
+                    currentAnim = IdleUp;
+                    break;
+                    case LookingDirection.Left:
+                    currentAnim = IdleLeft;
+                    break;
+                    case LookingDirection.Right:
+                    currentAnim = IdleRight;
+                    break;
+                }
+                break;
+                case AnimationStates.Moving:
+                switch (lookDir)
+                {
+                    case LookingDirection.Down:
+                    currentAnim = WalkDown;
+                    break;
+                    case LookingDirection.Up:
+                    currentAnim = WalkUp;
+                    break;
+                    case LookingDirection.Left:
+                    currentAnim = WalkLeft;
+                    break;
+                    case LookingDirection.Right:
+                    currentAnim = WalkRight;
+                    break;
+                }
+                break;
+                case AnimationStates.Shooting:
+                switch (lookDir)
+                {
+                    case LookingDirection.Down:
+                    currentAnim = ShootDown;
+                    break;
+                    case LookingDirection.Up:
+                    currentAnim = ShootUp;
+                    break;
+                    case LookingDirection.Left:
+                    currentAnim = ShootLeft;
+                    break;
+                    case LookingDirection.Right:
+                    currentAnim = ShootRight;
+                    break;
+                }
+                break;
+                case AnimationStates.MovingAndShooting:
+                switch (lookDir)
+                {
+                    case LookingDirection.Down:
+                    currentAnim = WalkAndShootDown;
+                    break;
+                    case LookingDirection.Up:
+                    currentAnim = WalkAndShootUp;
+                    break;
+                    case LookingDirection.Left:
+                    currentAnim = WalkAndShootLeft;
+                    break;
+                    case LookingDirection.Right:
+                    currentAnim = WalkAndShootRight;
+                    break;
+                }
+                break;
+            }
+        }
 	}
 	/// <summary>
 	/// playing the current animation.
@@ -343,4 +347,35 @@ public class CharacterAnimation : MonoBehaviour
 			yield return null;
 		}
 	}
+
+    /// <summary>
+    /// All the actions needed to animate the player jumping off a wall
+    /// </summary>
+    public void JumpOfWallAnimation ()
+    {
+        StartCoroutine(JumpingDownTimer());
+        switch (lookDir)
+        {
+            case LookingDirection.Down:
+            currentAnim = JumpOfWallDown;
+            break;
+            case LookingDirection.Up:
+            currentAnim = JumpOfWallUp;
+            break;
+            case LookingDirection.Left:
+            currentAnim = JumpOfWallLeft;
+            break;
+            case LookingDirection.Right:
+            currentAnim = JumpOfWallRight;
+            break;
+        }
+    }
+
+    private IEnumerator JumpingDownTimer ()
+    {
+        jumpingDown = true;
+        yield return new WaitForSeconds(0.5f);
+        jumpingDown = false;
+        AnimationStateAdjusted();
+    }
 }

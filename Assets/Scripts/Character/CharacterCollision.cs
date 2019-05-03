@@ -12,6 +12,7 @@ public class CharacterCollision : MonoBehaviour
 	[SerializeField]
 	private Material normalMat;
 	
+    public bool onTheWall;
 	private bool canOpenChest;
 	private GameObject currentChest;
 	private SpriteRenderer render;
@@ -61,6 +62,10 @@ public class CharacterCollision : MonoBehaviour
 			canOpenChest = true;
 			currentChest = col.gameObject;
 		}
+        if (col.gameObject.tag == ConstStrings.JUMPDOWNTAG)
+        {
+            ChangeOnTheWallVariable (true);
+        }
 	}
 
 	/// <summary>
@@ -73,7 +78,8 @@ public class CharacterCollision : MonoBehaviour
 		{
 			canOpenChest = false;
 		}
-	}
+        
+    }
 
 	/// <summary>
 	/// Function that triggers the adjust life event.
@@ -96,4 +102,12 @@ public class CharacterCollision : MonoBehaviour
 			}
 		}
 	}
+
+    /// <summary>
+    /// Set the 
+    /// </summary>
+    public void ChangeOnTheWallVariable (bool value)
+    {
+        onTheWall = value;
+    }
 }

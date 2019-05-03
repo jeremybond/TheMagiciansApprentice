@@ -15,4 +15,7 @@ public class ConstStrings
 	public const string SPELLTAG = "Spell";
 	public const string PICKUPTAG = "PickUp";
 	public const string CHESTTAG = "Chest";
+    public const string ENVIORMENTTAG = "Enviorment";
+    public const string WALLTAG = "Wall";
+    public const string JUMPDOWNTAG = "JumpTrigger";
 }
