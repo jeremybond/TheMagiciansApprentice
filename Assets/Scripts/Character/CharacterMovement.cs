@@ -49,8 +49,8 @@ public class CharacterMovement : MonoBehaviour
 	/// <param name="vertical"></param>
 	private void Move (float horizontal, float vertical)
 	{
-		horizontal =  Mathf.RoundToInt (horizontal);
-		vertical = Mathf.RoundToInt (vertical);
+		//horizontal =  Mathf.Round (horizontal);
+		//vertical = Mathf.Round (vertical);
 		if (horizontal != 0 && vertical != 0)
 		{
 			horizontal /= 1.5f;
