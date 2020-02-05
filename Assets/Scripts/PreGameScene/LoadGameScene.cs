@@ -11,6 +11,6 @@ public class LoadGameScene : MonoBehaviour
 	/// </summary>
 	protected void Awake () 
 	{
-        SceneManager.LoadScene(ConstStrings.MAINSCENENAME);
+		SceneManager.LoadScene(ConstStrings.MAINMENUSCENE);
 	}
 }

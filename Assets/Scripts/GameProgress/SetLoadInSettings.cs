@@ -7,25 +7,35 @@ public class SetLoadInSettings : MonoBehaviour
 {
 	private Transform playerTransform;
 	private int playerLives;
+	private int currentSaveID;
+
+	protected void Awake ()
+	{
+		currentSaveID = PlayerPrefs.GetInt(ConstStrings.CURRENTSAVEDID);
+	}
+
 
 	/// <summary>
-	/// OnLevelLoaded function that is called when a level is loaded sets player position at last enterd house.
+	/// OnLevelLoaded function that is called when a level is loaded sets player position at last entered house.
 	/// </summary>
 	/// <param name="level"></param>
 	protected void OnLevelWasLoaded(int level)
 	{
-		PlayerPrefs.SetInt(ConstStrings.PLAYERLIVES, PlayerStats.lives);
-		if (playerTransform == null)
+		if (level > 1)
 		{
-			playerTransform = GameObject.FindGameObjectWithTag(ConstStrings.PLAYERTAG).transform;
-		}
-		if (level == 0)
-		{
-			Vector2 lastPlayerPos;
-			lastPlayerPos.x = PlayerPrefs.GetFloat(ConstStrings.SAVEDPLAYERPOSITIONX);
-			lastPlayerPos.y = PlayerPrefs.GetFloat(ConstStrings.SAVEDPLAYERPOSITIONY);
+			PlayerPrefs.SetInt(ConstStrings.PLAYERLIVES + currentSaveID.ToString (), PlayerStats.lives);
+			if (playerTransform == null)
+			{
+				playerTransform = GameObject.FindGameObjectWithTag(ConstStrings.PLAYERTAG).transform;
+			}
+			if (level == 0)
+			{
+				Vector2 lastPlayerPos;
+				lastPlayerPos.x = PlayerPrefs.GetFloat(ConstStrings.SAVEDPLAYERPOSITIONX + currentSaveID.ToString ());
+				lastPlayerPos.y = PlayerPrefs.GetFloat(ConstStrings.SAVEDPLAYERPOSITIONY + currentSaveID.ToString ());
 
-			playerTransform.position = lastPlayerPos;
+				playerTransform.position = lastPlayerPos;
+			}
 		}
 	}
 }
