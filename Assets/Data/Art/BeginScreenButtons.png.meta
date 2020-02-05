@@ -1,0 +1,390 @@
+fileFormatVersion: 2
+guid: cfa538682f8b3fd47ae60a507ca45a5a
+timeCreated: 1580590127
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: LoadGame
+    21300002: File1
+    21300004: Options
+    21300006: File2
+    21300008: Exit
+    21300010: File3
+    21300012: Erase
+    21300014: Back
+    21300016: Select
+    21300018: Empty
+    21300020: Arrow
+    21300022: Play
+    21300024: LoadGameoff
+    21300026: LoadGameOn
+    21300028: OptionsOff
+    21300030: OptionsOn
+    21300032: ExitOff
+    21300034: ExitOn
+    21300036: EraseOff
+    21300038: BackOff
+    21300040: PlayOff
+    21300042: EraseOn
+    21300044: BackOn
+    21300046: PlayOn
+    21300048: EmptyOn
+    21300050: EmptyOff
+    21300052: YesOn
+    21300054: YesOff
+    21300056: EmptySmallOn
+    21300058: EmptySmallOff
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: LoadGameoff
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1834
+        width: 1014
+        height: 214
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -507, y: 107}
+        - {x: -507, y: -106}
+        - {x: -506, y: -107}
+        - {x: 506, y: -107}
+        - {x: 507, y: -106}
+        - {x: 507, y: 107}
+    - name: LoadGameOn
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1834
+        width: 1014
+        height: 214
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -507, y: 107}
+        - {x: -507, y: -106}
+        - {x: -506, y: -107}
+        - {x: 506, y: -107}
+        - {x: 507, y: -106}
+        - {x: 507, y: 107}
+    - name: OptionsOff
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1616
+        width: 1014
+        height: 214
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -507, y: 107}
+        - {x: -507, y: -106}
+        - {x: -506, y: -107}
+        - {x: 506, y: -107}
+        - {x: 507, y: -106}
+        - {x: 507, y: 107}
+    - name: OptionsOn
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1616
+        width: 1014
+        height: 214
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -507, y: 107}
+        - {x: -507, y: -106}
+        - {x: -506, y: -107}
+        - {x: 506, y: -107}
+        - {x: 507, y: -106}
+        - {x: 507, y: 107}
+    - name: ExitOff
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1398
+        width: 1014
+        height: 214
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -507, y: 107}
+        - {x: -507, y: -106}
+        - {x: -506, y: -107}
+        - {x: 506, y: -107}
+        - {x: 507, y: -106}
+        - {x: 507, y: 107}
+    - name: ExitOn
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1398
+        width: 1014
+        height: 214
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -507, y: 107}
+        - {x: -507, y: -106}
+        - {x: -506, y: -107}
+        - {x: 506, y: -107}
+        - {x: 507, y: -106}
+        - {x: 507, y: 107}
+    - name: EraseOff
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1210
+        width: 359
+        height: 184
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -179.5, y: 92}
+        - {x: -179.5, y: -91}
+        - {x: -178.5, y: -92}
+        - {x: 178.5, y: -92}
+        - {x: 179.5, y: -91}
+        - {x: 179.5, y: 92}
+    - name: BackOff
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 1210
+        width: 359
+        height: 184
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -179.5, y: 92}
+        - {x: -179.5, y: -91}
+        - {x: -178.5, y: -92}
+        - {x: 178.5, y: -92}
+        - {x: 179.5, y: -91}
+        - {x: 179.5, y: 92}
+    - name: PlayOff
+      rect:
+        serializedVersion: 2
+        x: 1026
+        y: 1179
+        width: 1014
+        height: 215
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -507, y: 107.5}
+        - {x: -507, y: -106.5}
+        - {x: -506, y: -107.5}
+        - {x: 506, y: -107.5}
+        - {x: 507, y: -106.5}
+        - {x: 507, y: 105.5}
+        - {x: 505, y: 107.5}
+    - name: EraseOn
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1023
+        width: 359
+        height: 183
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -179.5, y: 91.5}
+        - {x: -179.5, y: -91.5}
+        - {x: 179.5, y: -91.5}
+        - {x: 179.5, y: 91.5}
+    - name: BackOn
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 1023
+        width: 359
+        height: 183
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -179.5, y: 91.5}
+        - {x: -179.5, y: -91.5}
+        - {x: 179.5, y: -91.5}
+        - {x: 179.5, y: 91.5}
+    - name: PlayOn
+      rect:
+        serializedVersion: 2
+        x: 1026
+        y: 961
+        width: 1014
+        height: 214
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -507, y: 107}
+        - {x: -507, y: -106}
+        - {x: -506, y: -107}
+        - {x: 506, y: -107}
+        - {x: 507, y: -106}
+        - {x: 507, y: 107}
+    - name: EmptyOn
+      rect:
+        serializedVersion: 2
+        x: 1025
+        y: 743
+        width: 1014
+        height: 214
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -507, y: 107}
+        - {x: -507, y: -106}
+        - {x: -506, y: -107}
+        - {x: 506, y: -107}
+        - {x: 507, y: -106}
+        - {x: 507, y: 107}
+    - name: EmptyOff
+      rect:
+        serializedVersion: 2
+        x: 1025
+        y: 525
+        width: 1014
+        height: 214
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -507, y: 107}
+        - {x: -507, y: -106}
+        - {x: -506, y: -107}
+        - {x: 506, y: -107}
+        - {x: 507, y: -106}
+        - {x: 507, y: 107}
+    - name: YesOn
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 837
+        width: 359
+        height: 183
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -179.5, y: 91.5}
+        - {x: -179.5, y: -90.5}
+        - {x: -178.5, y: -91.5}
+        - {x: 178.5, y: -91.5}
+        - {x: 179.5, y: -90.5}
+        - {x: 179.5, y: 91.5}
+    - name: YesOff
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 838
+        width: 359
+        height: 183
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -177.5, y: 91.5}
+        - {x: -179.5, y: 89.5}
+        - {x: -179.5, y: -91.5}
+        - {x: 179.5, y: -91.5}
+        - {x: 179.5, y: 89.5}
+        - {x: 177.5, y: 91.5}
+    - name: EmptySmallOn
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 650
+        width: 359
+        height: 183
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -179.5, y: 91.5}
+        - {x: -179.5, y: -90.5}
+        - {x: -178.5, y: -91.5}
+        - {x: 178.5, y: -91.5}
+        - {x: 179.5, y: -90.5}
+        - {x: 179.5, y: 91.5}
+    - name: EmptySmallOff
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 650
+        width: 359
+        height: 183
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -179.5, y: 91.5}
+        - {x: -179.5, y: -90.5}
+        - {x: -178.5, y: -91.5}
+        - {x: 178.5, y: -91.5}
+        - {x: 179.5, y: -90.5}
+        - {x: 179.5, y: 91.5}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
