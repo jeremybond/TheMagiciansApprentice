@@ -11,12 +11,14 @@ public class EventManager : MonoBehaviour
 
 	private Dictionary<string, UnityEvent> eventDictionary;
 	private Dictionary<string, AudioEvent> audioEventDictionary;
+	private Dictionary<string, FileEvent> fileEventDictionary;
 	private Dictionary<string, LifeEvent> livesEventDictionary;
-	private Dictionary<string,  WalletEvent> walletEventDictionary;
+	private Dictionary<string, WalletEvent> walletEventDictionary;
 	private Dictionary<string, ConversationEvent> conversationEventDictionary;
 
 	private static EventManager eventManager;
 	private const string AUDIOEVENT = "audioEvent";
+	private const string FILEEVENT = "FileEvent";
 	private const string LIFEADJUSTEVENT = "LifeAdjustEvent";
 	private const string WALLETADJUSTEVENT = "WalletAdjustEvent";
 	private const string CONVERSATIONEVENT = "ConversationEvent";
@@ -54,6 +56,10 @@ public class EventManager : MonoBehaviour
 		if (audioEventDictionary == null)
 		{
 			audioEventDictionary = new Dictionary<string, AudioEvent> ();
+		}
+		if (fileEventDictionary == null)
+		{
+			fileEventDictionary = new Dictionary<string, FileEvent> ();
 		}
 		if (livesEventDictionary == null)
 		{
@@ -103,9 +109,29 @@ public class EventManager : MonoBehaviour
 		}
 		else
 		{
-			thisEvent = new LifeEvent();
+			thisEvent = new LifeEvent ();
 			thisEvent.AddListener (listener);
 			instance.livesEventDictionary.Add (LIFEADJUSTEVENT, thisEvent);
+		}
+	}
+
+	/// <summary>
+	/// Creates a file Event.
+	/// </summary>
+	/// <param name="eventName"></param>
+	/// <param name="listener"></param>
+	public static void AddFileEventListener (UnityAction<int, string, int> listener)
+	{
+		FileEvent thisEvent = null;
+		if (instance.fileEventDictionary.TryGetValue (FILEEVENT, out thisEvent))
+		{
+			thisEvent.AddListener (listener);
+		}
+		else
+		{
+			thisEvent = new FileEvent ();
+			thisEvent.AddListener (listener);
+			instance.fileEventDictionary.Add (FILEEVENT, thisEvent);
 		}
 	}
 
@@ -204,6 +230,23 @@ public class EventManager : MonoBehaviour
 	}
 
 	/// <summary>
+	/// Remove file adjustment listener function.
+	/// </summary>
+	/// <param name="listener"></param>
+	public static void RemoveFileEventListener (UnityAction<int, string, int> listener)
+	{
+		if (eventManager == null)
+		{
+			return;
+		}
+		FileEvent thisEvent = null;
+		if (instance.fileEventDictionary.TryGetValue (FILEEVENT, out thisEvent))
+		{
+			thisEvent.RemoveListener (listener);
+		}
+	}
+
+	/// <summary>
 	/// Remove adjust wallet content listener function.
 	/// </summary>
 	/// <param name="listener"></param>
@@ -277,6 +320,19 @@ public class EventManager : MonoBehaviour
 		if (instance.livesEventDictionary.TryGetValue (LIFEADJUSTEVENT, out thisEvent))
 		{
 			thisEvent.Invoke (damage);
+		}
+	}
+
+	/// <summary>
+	/// Trigger File changing event function.
+	/// </summary>
+	/// <param name="clip"></param>
+	public static void TriggerFileEvent (int fileID, string fileName, int eventNature)
+	{
+		FileEvent thisEvent = null;
+		if (instance.fileEventDictionary.TryGetValue (FILEEVENT, out thisEvent))
+		{
+			thisEvent.Invoke (fileID, fileName, eventNature);
 		}
 	}
 
