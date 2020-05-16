@@ -7,6 +7,12 @@ using UnityEngine.SceneManagement;
 public class EnterHouse : MonoBehaviour
 {
 	[SerializeField] private string HouseSceneName;
+	private int currentSaveID;
+
+	protected void Awake ()
+	{
+		currentSaveID = PlayerPrefs.GetInt(ConstStrings.CURRENTSAVEDID);
+	}
 
 	/// <summary>
 	/// The OnTrigger function is used to check when a player will enter the collider.
@@ -16,7 +22,7 @@ public class EnterHouse : MonoBehaviour
 	{
 		if (col.gameObject.name == ConstStrings.PLAYERTAG)
 		{
-			PlayerPrefs.SetInt(ConstStrings.PLAYERLIVES, PlayerStats.lives);
+			PlayerPrefs.SetInt(ConstStrings.PLAYERLIVES + currentSaveID.ToString (), PlayerStats.lives);
             EventManager.TriggerEvent(GeneralEvents.ENTERHOUSE);
 			SceneManager.LoadScene (HouseSceneName);
 		}
