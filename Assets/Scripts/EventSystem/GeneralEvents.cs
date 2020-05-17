@@ -13,4 +13,6 @@ public class GeneralEvents
 	public const string SAVEFILE =	 "SaveFile";
 	public const string QUITGAME = "QuitGame";
 	public const string LOADGAME = "LoadGame";
+	public const string OPENMENU = "OpenMenu";
+	public const string CLOSEMENU = "CloseMenu"; 
 }

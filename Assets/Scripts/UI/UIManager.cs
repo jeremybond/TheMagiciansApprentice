@@ -7,6 +7,8 @@ using System.Collections;
 
 public class UIManager : MonoBehaviour 
 {
+	public static bool inGameMenuActive = false;
+
 	[SerializeField] private GameObject inGameUI;
 
 
@@ -17,6 +19,8 @@ public class UIManager : MonoBehaviour
 	{
 		EventManager.AddListener(GeneralEvents.LOADGAME, EnableGameUI);
 		EventManager.AddListener(GeneralEvents.QUITGAME, DisableGameUI);
+		EventManager.AddListener(GeneralEvents.OPENMENU, EnableGameMenuUI);
+		EventManager.AddListener(GeneralEvents.CLOSEMENU, DisableGameMenuUI);
 	}
 
 	/// <summary>
@@ -32,5 +36,20 @@ public class UIManager : MonoBehaviour
 	protected void DisableGameUI ()
 	{
 		inGameUI.SetActive (false);
+	}
+
+	/// <summary>
+	/// Enables the menu UI.
+	/// </summary>
+	protected void EnableGameMenuUI ()
+	{
+		inGameMenuActive = true;
+	}
+	/// <summary>
+	/// Disables the menu UI.
+	/// </summary>
+	protected void DisableGameMenuUI ()
+	{
+		inGameMenuActive = false;
 	}
 }
