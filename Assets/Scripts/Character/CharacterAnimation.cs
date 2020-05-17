@@ -92,9 +92,12 @@ public class CharacterAnimation : MonoBehaviour
 	{
 		if (!PlayerStats.died)
 		{
-			CheckMoving ();
+			if (!UIManager.inGameMenuActive)
+			{
+				CheckMoving ();
+				CheckShooting ();
+			}
 			CheckStopMoving ();
-			CheckShooting ();
 		}
 	}
 	/// <summary>

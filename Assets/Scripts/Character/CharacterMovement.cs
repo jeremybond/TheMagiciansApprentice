@@ -37,9 +37,16 @@ public class CharacterMovement : MonoBehaviour
 	/// </summary>
 	protected void Update ()
 	{
-		if (!PlayerStats.died)
+		if (!UIManager.inGameMenuActive)
 		{
-			Move (Input.GetAxis ("Horizontal"), Input.GetAxis ("Vertical"));
+			if (!PlayerStats.died)
+			{
+				Move (Input.GetAxis ("Horizontal"), Input.GetAxis ("Vertical"));
+			}
+		}
+		else
+		{
+			rigid.velocity = Vector2.zero;
 		}
 	}
 	/// <summary>

@@ -13,7 +13,7 @@ public class SpellCast : MonoBehaviour
 	{
 		if (canCast)
 		{
-			if (Input.GetKeyDown(KeyCode.Space))
+			if (Input.GetKeyDown(KeyCode.Space) && !UIManager.inGameMenuActive)
 			{
 				EventManager.TriggerEvent(GeneralEvents.SPELLCAST);
 				canCast = false;

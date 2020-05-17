@@ -48,10 +48,13 @@ public class CharacterJumpDown : MonoBehaviour
 	/// </summary>
 	protected void Update ()
     {
-        if (Input.GetAxis ("Horizontal") != 0 || Input.GetAxis ("Vertical") !=0)
-        {
-            ReadyToJumpCheck();
-        }
+		if (!UIManager.inGameMenuActive)
+		{
+			if (Input.GetAxis ("Horizontal") != 0 || Input.GetAxis ("Vertical") !=0)
+			{
+				ReadyToJumpCheck();
+			}
+		}
     }
 
     /// <summary>
